@@ -1,0 +1,15 @@
+#include <stdio.h>
+
+union data { int x; float y; char s[20]; };
+
+int main() {
+    union data d;
+
+    d.x = 10;
+    printf("%d\n", d.x);
+
+    d.y = 3.14;
+    printf("%f\n", d.y);
+
+    return 0;
+}
