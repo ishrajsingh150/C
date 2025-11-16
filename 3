@@ -1,0 +1,50 @@
+#include <stdio.h>
+
+int main() {
+    int option;
+    printf("1=MeanVar  2=SumPosNeg  3=Transpose  4=LowerTri\n");
+    scanf("%d",&option);
+
+    if(option==1){
+        int n,i; float a[50],mean=0,var=0;
+        scanf("%d",&n);
+        for(i=0;i<n;i++) scanf("%f",&a[i]), mean+=a[i];
+        mean/=n;
+        for(i=0;i<n;i++) var += (a[i]-mean)*(a[i]-mean);
+        var/=n;
+        printf("Mean=%.2f Var=%.2f",mean,var);
+    }
+
+    else if(option==2){
+        int n,i,x,pos=0,neg=0;
+        scanf("%d",&n);
+        for(i=0;i<n;i++){
+            scanf("%d",&x);
+            if(x>=0) pos+=x; else neg+=x;
+        }
+        printf("%d %d",pos,neg);
+    }
+
+    else if(option==3){
+        int r,c,i,j,a[10][10];
+        scanf("%d%d",&r,&c);
+        for(i=0;i<r;i++) for(j=0;j<c;j++) scanf("%d",&a[i][j]);
+        for(i=0;i<c;i++){
+            for(j=0;j<r;j++) printf("%d ",a[j][i]);
+            printf("\n");
+        }
+    }
+
+    else if(option==4){
+        int n,i,j,a[10][10];
+        scanf("%d",&n);
+        for(i=0;i<n;i++) for(j=0;j<n;j++) scanf("%d",&a[i][j]);
+        for(i=0;i<n;i++){
+            for(j=0;j<n;j++)
+                printf(j<=i ? "%d " : "0 ", a[i][j]);
+            printf("\n");
+        }
+    }
+
+    return 0;
+}
