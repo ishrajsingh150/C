@@ -1,0 +1,39 @@
+#include <stdio.h>
+#include <math.h>
+
+int main() {
+    int ch;
+    printf("1=Switch  2=Quadratic  3=LeapYear  4=DigitSum\n");
+    scanf("%d",&ch);
+
+    if(ch==1){
+        int x; scanf("%d",&x);
+        switch(x){
+            case 1: printf("One"); break;
+            case 2: printf("Two"); break;
+            default: printf("Invalid");
+        }
+    }
+
+    else if(ch==2){
+        float a,b,c,d;
+        scanf("%f%f%f",&a,&b,&c);
+        d = b*b - 4*a*c;
+        if(d>=0) printf("Roots: %.2f %.2f",(-b+sqrt(d))/(2*a),(-b-sqrt(d))/(2*a));
+        else printf("Imaginary");
+    }
+
+    else if(ch==3){
+        int y; scanf("%d",&y);
+        if((y%4==0 && y%100!=0) || y%400==0) printf("Leap");
+        else printf("Not Leap");
+    }
+
+    else if(ch==4){
+        int n,s=0; scanf("%d",&n);
+        while(n){ s+=n%10; n/=10;}
+        printf("%d",s);
+    }
+
+    return 0;
+}
