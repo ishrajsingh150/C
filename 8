@@ -1,0 +1,39 @@
+#include <stdio.h>
+
+struct dist{ int km,m; };
+struct sub{ float g,c; };
+
+int main() {
+    int ch;
+    printf("1=Distance  2=CGPA\n");
+    scanf("%d",&ch);
+
+    if(ch==1){
+        struct dist d1,d2,r;
+        scanf("%d%d%d%d",&d1.km,&d1.m,&d2.km,&d2.m);
+
+        r.km = d1.km + d2.km;
+        r.m  = d1.m + d2.m;
+
+        if(r.m>=1000){ r.km++; r.m-=1000; }
+
+        printf("%d km %d m", r.km, r.m);
+    }
+
+    else if(ch==2){
+        int n,i;
+        float sum=0,cred=0;
+        struct sub s[10];
+
+        scanf("%d",&n);
+        for(i=0;i<n;i++){
+            scanf("%f%f",&s[i].g,&s[i].c);
+            sum += s[i].g * s[i].c;
+            cred += s[i].c;
+        }
+
+        printf("CGPA=%.2f", sum/cred);
+    }
+
+    return 0;
+}
