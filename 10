@@ -1,0 +1,41 @@
+#include <stdio.h>
+#include <string.h>
+#define PI 3.14159
+
+void calc(float r, float *a, float *c){
+    *a = PI*r*r;
+    *c = 2*PI*r;
+}
+
+int main() {
+    int choice;
+    printf("1=StringSort  2=Circle\n");
+    scanf("%d",&choice);
+
+    if(choice==1){
+        int n,i,j;
+        char s[10][50],temp[50];
+
+        scanf("%d",&n);
+        for(i=0;i<n;i++) scanf("%s",s[i]);
+
+        for(i=0;i<n-1;i++)
+            for(j=0;j<n-1;j++)
+                if(strlen(s[j]) > strlen(s[j+1])){
+                    strcpy(temp,s[j]);
+                    strcpy(s[j],s[j+1]);
+                    strcpy(s[j+1],temp);
+                }
+
+        for(i=0;i<n;i++) printf("%s\n",s[i]);
+    }
+
+    else if(choice==2){
+        float r,a,c;
+        scanf("%f",&r);
+        calc(r,&a,&c);
+        printf("%.2f\n%.2f",a,c);
+    }
+
+    return 0;
+}
