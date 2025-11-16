@@ -1,0 +1,16 @@
+#include <stdio.h>
+
+int fib(int n){ return n<=1 ? n : fib(n-1)+fib(n-2); }
+long fact(int n){ return n<=1 ? 1 : n*fact(n-1); }
+
+int main() {
+    int ch,n;
+    printf("1=Fib  2=Fact\n");
+    scanf("%d",&ch);
+    scanf("%d",&n);
+
+    if(ch==1) printf("%d", fib(n));
+    else printf("%ld", fact(n));
+
+    return 0;
+}
